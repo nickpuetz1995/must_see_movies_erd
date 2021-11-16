@@ -1,0 +1,18 @@
+<%= form_with(model: @review, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+
+  <div class="form-group">
+    <%= f.label :review %>
+
+    <%= f.text_field :review, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create review", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
