@@ -1,0 +1,12 @@
+<%= form_with(model: @cast, local: true) do |f| %>
+
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+
+  <div class="form-group">
+    <%= f.label :actor_id %>
+
+    <%= f.collection_select :actor_id, Actor.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create cast", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
