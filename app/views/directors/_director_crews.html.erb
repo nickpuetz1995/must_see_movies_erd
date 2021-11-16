@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Crews
+
+    <a data-toggle="collapse" href="#director_crews_new_form">
+      Add crew
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @director.crews.each do |crew| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <%= link_to crew, crew %>
+
+        <%= link_to crew, method: :delete, data: { confirm: "Do you really want to delete this crew" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="director_crews_new_form">
+        <%= render partial: "directors/director_crews_new_form" %>
+      </div>
+    </div>
+
+  </ul>
+</div>
